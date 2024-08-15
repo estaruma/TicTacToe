@@ -1,15 +1,24 @@
 package org.example;
 
+// for players in the game
 public class Player {
+
     private String name;
 
+    private String symbol;
 
-    public Player(String name) {
+
+    public Player(String name, String symbol) {
         this.name = name;
+        this.symbol = symbol;
     }
 
     public String getName() {
         return name;
+    }
+
+    public String getSymbol() {
+        return symbol;
     }
 
 }
