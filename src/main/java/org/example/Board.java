@@ -13,6 +13,7 @@ public class Board {
     // size of board
     private static final int SIZE = 3;
 
+
     // constructor to initilialise board and cells set to empty
     public Board() {
         board = new char[SIZE][SIZE];
@@ -21,6 +22,11 @@ public class Board {
                 board[i][j] = ' ';
             }
         }
+    }
+
+    // for testing purpose
+    public char[][] getBoard() {
+        return board;
     }
 
     // method to place symbol on specific row and column

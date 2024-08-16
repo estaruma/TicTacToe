@@ -23,9 +23,18 @@ public class GameEval {
 
     }
 
-    // switch player after each turm
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
 
-    private void switchPlayer() {
+    // for testing purpose
+    public Board getBoard() {
+        return board;
+    }
+
+    // switch player after each turn
+
+    protected void switchPlayer() {
         if (currentPlayer == player1) {
             currentPlayer = player2;
         } else {
@@ -68,7 +77,7 @@ public class GameEval {
                         board.placeSymbol(2, 0, symbol));
     }
 
-    private boolean hasWon() {
+    protected boolean hasWon() {
         char symbol = currentPlayer.getSymbol().charAt(0);
         return checkRows(symbol) || checkColumns(symbol) || checkDiagonals(symbol);
     }
@@ -82,7 +91,11 @@ public class GameEval {
             int row = scanner.nextInt() - 1;
             int col = scanner.nextInt() - 1;
 
-            if (board.placeSymbol(row, col, currentPlayer.getSymbol().charAt(0))) {
+            // move object
+            Move move = new Move(row, col, currentPlayer.getSymbol().charAt(0));
+
+            if (board.placeSymbol(move.getRow(), move.getColumn(), move.getPlayerSymbol())) {
+                // win/ draw
                 if (hasWon()) {
                     board.displayBoard();
                     System.out.println(currentPlayer.getName() + " (" + currentPlayer.getSymbol() + ") wins!");
