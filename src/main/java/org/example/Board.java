@@ -24,16 +24,15 @@ public class Board {
     }
 
     // method to place symbol on specific row and column
-    public boolean placeSymbol(int row, int col, char mark) {
+    public boolean placeSymbol(int row, int col, char symbol) {
         // check if within bounds and empty
-        if (row < 0 || row >= SIZE || col <0 || col >= SIZE || board[row][col] != ' ') {
+        if (row < 0 || row >= SIZE || col < 0 || col >= SIZE || board[row][col] != ' ') {
             return false;
         }
         // place symbol if criteria above matches
         board[row][col] = symbol;
         return true;
     }
-
 
     // check if board is full
     // iterates over cells and finds any ' '
@@ -49,29 +48,20 @@ public class Board {
         return true;
     }
 
-
-
-
-
     // display current board
     public void displayBoard() {
         for (int i = 0; i < SIZE; i++) {
             for (int j=0; j<SIZE; j++) {
                 System.out.println(board[i][j]);
                 // print lines - colomns and rows
+                if (j<SIZE -1) {
+                    System.out.println(" | ");
+                }
             }
-
-
-
-
-
+            System.out.println();
+            if (i < SIZE -1 ) {
+                System.out.println("----------");
+            }
     }
-
     }
-
-
-
-
-
-
 }
