@@ -60,7 +60,7 @@ public class Board {
             }
             System.out.println();
             if (i < SIZE -1 ) {
-                System.out.println("----------");
+                System.out.println("-----");
             }
     }
     }
